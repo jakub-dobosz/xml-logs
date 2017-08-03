@@ -9,8 +9,8 @@ class LogLevelListener implements Listener {
 
     LogLevelListener(Listenable listenable) {
         this.listenable = listenable;
+        this.listenable.addListener(this);
         this.logLevelMap = new EnumMap<>(Level.class);
-        listenable.addListener(this);
     }
 
     public void update(Log log) {

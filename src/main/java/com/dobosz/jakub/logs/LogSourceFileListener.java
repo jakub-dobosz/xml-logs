@@ -11,8 +11,8 @@ class LogSourceFileListener implements Listener {
 
     LogSourceFileListener(Listenable listenable) {
         this.listenable = listenable;
+        this.listenable.addListener(this);
         this.logSourceMap = new HashMap<>();
-        listenable.addListener(this);
     }
 
     public void update(Log log) {

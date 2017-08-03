@@ -11,8 +11,8 @@ class LogCodeListener implements Listener {
 
     LogCodeListener(Listenable listenable) {
         this.listenable = listenable;
+        this.listenable.addListener(this);
         this.logCodeMap = new HashMap<>();
-        listenable.addListener(this);
     }
 
     public void update(Log log) {

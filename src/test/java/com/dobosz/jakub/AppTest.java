@@ -1,4 +1,4 @@
-package com.jd;
+package com.dobosz.jakub;
 
 public class AppTest {
 

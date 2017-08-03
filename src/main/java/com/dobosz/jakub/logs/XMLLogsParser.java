@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * XMLLogsParser.java
- * Purpose: Parse logs from XML file.
+ * XMLLogsParser is a class that parses XML document with logs and displays its results.
  *
  * @author Jakub Dobosz
  * @version 1.0
@@ -26,6 +25,9 @@ public class XMLLogsParser {
     private LogListenable listenable;
     private List<Listener> listeners;
 
+    /**
+     * Default constructor
+     */
     public XMLLogsParser() {
         listenable = new LogListenable();
         listeners = new ArrayList<>();
@@ -35,9 +37,10 @@ public class XMLLogsParser {
     }
 
     /**
+     * Parse the given XML document with logs
      *
-     * @param file path to xml logs file
-     * @throws
+     * @param file path to XML document with logs
+     * @throws FileNotFoundException if the given path is not a file
      */
     public void parseLogs(String file) throws FileNotFoundException {
         try {
@@ -52,7 +55,7 @@ public class XMLLogsParser {
                 if (event.isStartElement()) {
                     StartElement startElement = event.asStartElement();
 
-                    if (startElement.getName().getLocalPart().equals(LOG)) {
+                    if (LOG.equals(startElement.getName().getLocalPart())) {
                         log = new Log();
                     }
 
@@ -77,7 +80,7 @@ public class XMLLogsParser {
 
                 if (event.isEndElement()) {
                     EndElement endElement = event.asEndElement();
-                    if (endElement.getName().getLocalPart().equals(LOG)) {
+                    if (LOG.equals(endElement.getName().getLocalPart())) {
                         listenable.setLog(log);
                         log = null;
                     }
@@ -89,11 +92,12 @@ public class XMLLogsParser {
     }
 
     /**
-     * XMLLogsParser.java
-     * Purpose: Parse logs from XML file.
-     *
-     * @author Jakub Dobosz
-     * @version 1.0
+     * Display results of parsed XML document with logs:
+     * <ul>
+     * <li>Number of occurrences for each log level
+     * <li>Top 5 most common files
+     * <li>Top 5 most common error codes
+     * </ul>
      */
     public void displayResults() {
         System.out.println("Logs parsing results:\n");

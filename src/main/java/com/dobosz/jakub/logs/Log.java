@@ -5,27 +5,27 @@ class Log {
     private String file;
     private int code;
 
-    public Level getLevel() {
+    Level getLevel() {
         return level;
     }
 
-    public void setLevel(Level level) {
+    void setLevel(Level level) {
         this.level = level;
     }
 
-    public String getFile() {
+    String getFile() {
         return file;
     }
 
-    public void setFile(String file) {
+    void setFile(String file) {
         this.file = file;
     }
 
-    public int getCode() {
+    int getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    void setCode(int code) {
         this.code = code;
     }
 }
