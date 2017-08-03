@@ -16,13 +16,13 @@ class LogListenable implements Listenable {
         listeners.add(listener);
     }
 
-    @Override
-    public void notifyListeners() {
-        listeners.parallelStream().forEach(l -> l.update(log));
-    }
-
     void setLog(Log log) {
         this.log = log;
         notifyListeners();
+    }
+
+    @Override
+    public void notifyListeners() {
+        listeners.parallelStream().forEach(l -> l.update(log));
     }
 }

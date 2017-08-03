@@ -2,6 +2,7 @@ package com.dobosz.jakub;
 
 import com.dobosz.jakub.logs.XMLLogsParser;
 
+import javax.xml.stream.XMLStreamException;
 import java.io.FileNotFoundException;
 
 public class XMLParserApplication {
@@ -16,6 +17,8 @@ public class XMLParserApplication {
                 parser.displayResults();
             } catch (FileNotFoundException e) {
                 System.out.println("Could not find file: " + file);
+            } catch (XMLStreamException e) {
+                System.out.println("An error occurred during XML parsing.");
             }
 
         } else {
