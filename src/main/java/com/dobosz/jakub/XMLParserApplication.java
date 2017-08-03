@@ -19,6 +19,7 @@ public class XMLParserApplication {
                 System.out.println("Could not find file: " + file);
             } catch (XMLStreamException e) {
                 System.out.println("An error occurred during XML parsing.");
+                e.printStackTrace();
             }
 
         } else {
